@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import submit_device_data
+from .views import PredictiveMaintenanceCreateView
 
 urlpatterns = [
-    path("submit/", submit_device_data, name="submit-device-data"),
+    path(
+        "submit/",
+        PredictiveMaintenanceCreateView.as_view(),
+        name="submit-device-data",
+    ),
 ]
