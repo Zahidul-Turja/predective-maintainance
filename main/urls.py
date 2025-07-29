@@ -7,7 +7,10 @@ urlpatterns = [
         PredictiveMaintenanceCreateView.as_view(),
         name="submit-device-data",
     ),
+    path("insights/", PredictiveMaintenanceListView.as_view(), name="device-insights"),
     path(
-        "insights/", PredictiveMaintenanceCreateView.as_view(), name="device-insights"
+        "insights/<int:pk>/",
+        PredictiveMaintenanceDetailView.as_view(),
+        name="device-insight-detail",
     ),
 ]
