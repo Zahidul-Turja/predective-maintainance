@@ -2,6 +2,7 @@ from django.db import models
 
 
 class PredictiveMaintenance(models.Model):
+    user_email = models.EmailField(null=True, blank=True)
     # Device Information
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
@@ -25,9 +26,7 @@ class PredictiveMaintenance(models.Model):
     # Repair History
     previous_repairs = models.JSONField(default=list)
     last_repair_date = models.CharField(max_length=100, blank=True, default="")
-    authorized_service = models.CharField(
-        max_length=10, blank=True, default=""
-    )
+    authorized_service = models.CharField(max_length=10, blank=True, default="")
     warranty_status = models.CharField(max_length=10, blank=True, default="")
 
     # Hardware Condition
